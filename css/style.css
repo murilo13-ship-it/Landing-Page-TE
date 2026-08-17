@@ -1,0 +1,58 @@
+html {
+    scroll-behavior: smooth;
+    height: 500vh;
+}
+
+* {
+    margin: 0;
+    top: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --txt_color : #15212E;
+    --opacity: 0.9;
+    --destaque_color: #1689C0;
+}
+
+body {
+    cursor: default;
+}
+
+button,
+a {
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+[data-type = "txt"] {
+    color: var(--txt_color);
+}
+
+.destaque {
+    color: var(--destaque_color);
+}
+
+.container {
+    margin: auto;
+}
+
+header .container {
+    max-width: 1280px;
+}
+
+header .flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header {
+    width: 100%;
+    padding: 60px 4%;
+}
