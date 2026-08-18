@@ -11,9 +11,13 @@ html {
 }
 
 :root {
-    --txt_color : #15212E;
-    --opacity: 0.9;
+    --white: #fff;
+    --black: #15212E;
+    --opacity: 0.6;
     --destaque_color: #1689C0;
+
+    --media_slot_bg1: #dce6f2;
+    --media_slot_bg2: #95c9fd;
 }
 
 body {
@@ -30,8 +34,74 @@ h1 {
     text-transform: uppercase;
 }
 
-[data-type = "txt"] {
-    color: var(--txt_color);
+.media_slot {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+[data-type="media"] img[src=""],
+[data-type="media"] img:not([src]) {
+    color: transparent;
+    visibility: hidden;
+}
+
+.media_slot[data-type="media"]:has(img[src=""]),
+.media_slot[data-type="media"]:has(img:not([src])) {
+    background-image: repeating-linear-gradient(
+    -45deg,
+    var(--media_slot_bg1) 0px,
+    var(--media_slot_bg1) 10px,
+    var(--media_slot_bg2) 10px,
+    var(--media_slot_bg2) 20px
+    );
+}
+
+.media_slot:has(img[src=""]) i.bi::before,
+.media_slot:has(img:not([src])) i.bi::before {
+    content: attr(data-icon, "SEM ÍCONE");
+    font-family: "bootstrap-icons", "Poppins", sans-serif;
+    opacity: var(--opacity);
+    font-size: 16px;
+    color: var(--black);
+    background-color: var(--white);
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.media_slot:has(img[src=""])::after,
+.media_slot:has(img:not([src]))::after {
+    content: attr(data-content, "CONTENT NOT FOUND");
+    opacity: var(--opacity);
+    font-family: monospace;
+    font-size: 13px;
+    font-weight: bold;
+    color: var(--black);
+    background-color: var(--white);
+    padding: 6px 14px;
+    border-radius: 8px;
+    text-align: center;
+    white-space: pre-wrap;
+}
+
+
+[data-txt-type="row"] {
+    flex-direction: row;
+}
+
+[data-txt-type="column"] {
+    flex-direction: column;
+}
+
+[data-type="txt"] {
+    color: var(--black);
 }
 
 .destaque {
