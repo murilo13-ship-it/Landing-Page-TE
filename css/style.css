@@ -42,14 +42,12 @@ h1 {
     gap: 12px;
 }
 
-[data-type="media"] img[src=""],
-[data-type="media"] img:not([src]) {
+[data-type="media"] :is(img[src=""], img:not([src])) {
     color: transparent;
-    visibility: hidden;
+    display: none;
 }
 
-.media_slot[data-type="media"]:has(img[src=""]),
-.media_slot[data-type="media"]:has(img:not([src])) {
+.media_slot[data-type="media"]:has(img[src=""], img:not([src])) {
     background-image: repeating-linear-gradient(
     -45deg,
     var(--media_slot_bg1) 0px,
@@ -59,9 +57,7 @@ h1 {
     );
 }
 
-.media_slot:has(img[src=""]) i.bi::before,
-.media_slot:has(img:not([src])) i.bi::before {
-    content: attr(data-icon, "SEM ÍCONE");
+.media_slot:has(img[src=""], img:not([src])) i.bi::before {
     font-family: "bootstrap-icons", "Poppins", sans-serif;
     opacity: var(--opacity);
     font-size: 16px;
@@ -76,9 +72,7 @@ h1 {
     text-align: center;
 }
 
-.media_slot:has(img[src=""])::after,
-.media_slot:has(img:not([src]))::after {
-    content: attr(data-content, "CONTENT NOT FOUND");
+.media_slot:has(img[src=""], img:not([src]))::after {
     opacity: var(--opacity);
     font-family: monospace;
     font-size: 13px;
@@ -91,6 +85,18 @@ h1 {
     white-space: pre-wrap;
 }
 
+.media_slot:has(img[src=""], img:not([src])):is([data-content = ""], :not([data-content]))::after,
+.media_slot:has(img[src=""], img:not([src])) i.bi:is([data-icon = ""], :not([data-icon]))::before {
+    content: "warn(data-; NOT FOUND)";
+}
+
+.media_slot:has(img[src=""], img:not([src])) i.bi[data-icon]:not([data-icon = ""])::before {
+    content: attr(data-icon);
+}
+
+.media_slot:has(img[src=""], img:not([src]))[data-content]:not([data-content = ""])::after {
+    content: attr(data-content);
+}
 
 [data-txt-type="row"] {
     flex-direction: row;
