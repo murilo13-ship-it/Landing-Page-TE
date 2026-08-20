@@ -13,11 +13,14 @@ html {
 :root {
     --white: #fff;
     --black: #15212E;
-    --opacity: 0.6;
     --destaque_color: #1689C0;
+    --muted: 50%;
+
+    --opacity: 0.6;
 
     --media_slot_bg1: #dce6f2;
     --media_slot_bg2: #95c9fd;
+    --main_bg_color: #f3f8fd;
 }
 
 body {
@@ -28,6 +31,15 @@ button,
 a {
     cursor: pointer;
     text-transform: uppercase;
+}
+
+button {
+    border: 0;
+    background-color: var(--destaque_color);
+    color: var(--white);
+    align-items: center;
+    letter-spacing: 0.5px;
+    transition: 0.5s;
 }
 
 h1 {
@@ -118,6 +130,37 @@ h1 {
     margin: auto;
 }
 
+header {
+    width: 100%;
+    padding: 60px 4%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+}
+
+header.rolling {
+    background-color: var(--black);
+    padding: 20px 4%;
+}
+
+header.rolling a {
+    color: var(--white);
+}
+
+header.rolling .contato button {
+    background-color:  var(--white);
+    color: var(--destaque_color);
+}
+
+header.rolling img {
+    opacity: 0;
+}
+
+header.rolling .color_fill {
+    opacity: 1;
+}
+
 header .container {
     max-width: 1280px;
 }
@@ -128,7 +171,93 @@ header .flex {
     justify-content: space-between;
 }
 
-header {
-    width: 100%;
-    padding: 60px 4%;
+header img {
+    height: auto;
+    width: 300px;
+}
+
+header .color_fill {
+    position: absolute;
+    inset: 0;
+    background-color: var(--white);
+
+    mask-image: url("../img/logo.png");
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+
+    -webkit-mask-image: url("../img/logo.png");
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+
+    opacity: 0;
+    pointer-events: none;
+}
+
+header .media_slot {
+    margin-right: auto;
+    height: 50px;
+    width: 400px;
+}
+
+header .contato {
+    margin-left: 60px;
+}
+
+header .contato button {
+    width: 120px;
+    height: 40px;
+}
+
+header ul {
+    list-style-type: none;
+}
+
+header li {
+    display: inline-block;
+    margin: 0 30px;
+}
+
+header li a {
+    color: var(--black);
+    text-decoration: none;
+}
+
+.banner {
+    height: 120vh;
+    background-color: var(--main_bg_color);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 6%;
+    gap: 120px;
+}
+
+.banner .container {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    max-width: 640px;
+    margin: 0;
+}
+
+.banner h1 {
+    font-size: 42px;
+    line-height: 1.3;
+}
+
+.banner p {
+    font-size: 20px;
+    color: color-mix(in srgb, var(--black) var(--muted), transparent);
+}
+
+.banner p .underline {
+    text-decoration: underline;
+    color: var(--black);
+}
+
+.banner .agendar button {
+    width: 300px;
+    height: 40px;
 }

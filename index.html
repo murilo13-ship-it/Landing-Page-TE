@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 <body>
-    <header id="base">
+    <header id="header">
         <div class="container">
 
             <div class="flex">
@@ -20,7 +20,8 @@
                     
                     <a href="#home">
                         <i class="bi" data-icon="&#xF219"></i>
-                        <img src="" alt="TE_logo">
+                        <img src="img/logo.png" alt="TE_logo">
+                        <span class="color_fill" aria-hidden="true"></span>
                     </a>
 
                 </div>
@@ -51,19 +52,23 @@
     </header><!--header-->
     
     <section class="banner">
-        <h1 data-type="txt">voce trabalha o mês inteiro e <span class="destaque"> o lucro não aparece</span><span class="per_mark">?</span></h1>
-
         <div class="container">
-
-            <a href="#diagnostico" class="agendar" data-type="btn">
-                <button>agendar diagnóstico gratuito</button>
-            </a>
+            <h1 data-type="txt">você trabalha o mês inteiro e <span class="destaque"> o lucro não aparece</span><span class="per_mark">?</span></h1>
 
             <p data-type="txt">
                 Preso na operação, sem tempo e sem clareza de quanto entra, sai e sobra. A gente assume seu financeiro de ponta a ponta — você se liberta pra crescer e finalmente 
-                <span class="line">enxerga o lucro do seu negócio.</span>
+                <span class="underline">enxerga o lucro do seu negócio.</span>
             </p>
         </div>
+
+        <a href="#diagnostico" class="agendar">
+            <button>
+                agendar diagnóstico gratuito
+                <i class="bi bi-arrow-right-circle"></i>
+            </button>
+        </a>
     </section><!--banner-->
+
+    <script src="js/menu.js"></script>
 </body>
 </html>
