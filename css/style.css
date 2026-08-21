@@ -7,7 +7,7 @@ html {
     margin: 0;
     top: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    font-family: "Inter", sans-serif;
 }
 
 :root {
@@ -27,6 +27,10 @@ body {
     cursor: default;
 }
 
+h1 {
+    font-weight: 800;
+}
+
 button,
 a {
     cursor: pointer;
@@ -34,16 +38,26 @@ a {
 }
 
 button {
+    align-items: center;
+    height: 40px;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    transition: 0.5s;
+    border-radius: 4px;
+}
+
+button[data-btn="scroll"],
+button[data-btn="blue"] {
     border: 0;
     background-color: var(--destaque_color);
     color: var(--white);
-    align-items: center;
-    letter-spacing: 0.5px;
-    transition: 0.5s;
 }
 
-h1 {
-    text-transform: uppercase;
+header.rolling button[data-btn="scroll"],
+button[data-btn="white"] {
+    border: 1.5px solid var(--destaque_color);
+    background-color:  var(--white);
+    color: var(--destaque_color);
 }
 
 .media_slot {
@@ -122,6 +136,16 @@ h1 {
     color: var(--black);
 }
 
+.tag {
+    text-align: center;
+    border-radius: 30px;
+    letter-spacing: 1px;
+    padding: 6px 14px;
+    border: 0.2px solid;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
 .destaque {
     color: var(--destaque_color);
 }
@@ -136,6 +160,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 10;
     transition: 0.5s;
 }
 
@@ -146,11 +171,6 @@ header.rolling {
 
 header.rolling a {
     color: var(--white);
-}
-
-header.rolling .contato button {
-    background-color:  var(--white);
-    color: var(--destaque_color);
 }
 
 header.rolling img {
@@ -207,7 +227,6 @@ header .contato {
 
 header .contato button {
     width: 120px;
-    height: 40px;
 }
 
 header ul {
@@ -232,6 +251,9 @@ header li a {
     justify-content: flex-start;
     padding: 0 6%;
     gap: 120px;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
 }
 
 .banner .container {
@@ -242,8 +264,35 @@ header li a {
     margin: 0;
 }
 
+.banner .shapes {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.banner .shapes .shape {
+    position: absolute;
+    background-color: var(--destaque_color);
+}
+
+.banner .shapes .circle {
+    border-radius: 50%;
+}
+
+.banner .shapes .square {
+    border-radius: 4px;
+}
+
+.banner .tag {
+    background-color: var(--white);
+    color: var(--black);
+    border-color: var(--black);
+    align-self: flex-start;
+}
+
 .banner h1 {
-    font-size: 42px;
+    font-size: 50px;
     line-height: 1.3;
 }
 
@@ -259,5 +308,8 @@ header li a {
 
 .banner .agendar button {
     width: 300px;
-    height: 40px;
+}
+
+.banner .como button {
+    width: 170px;
 }
